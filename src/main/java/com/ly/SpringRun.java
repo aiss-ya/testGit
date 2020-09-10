@@ -11,6 +11,8 @@ public class SpringRun {
 		SpringApplication.run(SpringRun.class, args);
 		System.out.println("第一次新建项目");
 		System.out.println("第一次更新项目");
+		System.out.println("创建分支dev");
+		
 		
 	}
 }
