@@ -12,6 +12,7 @@ public class SpringRun {
 		System.out.println("第一次新建项目");
 		System.out.println("第一次更新项目");
 		System.out.println("创建分支dev");
+		System.out.println("主干添加");
 		
 		
 	}
