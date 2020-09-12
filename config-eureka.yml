@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: dev
+
+---
+server:
+  port: 9725
+  
+spring: 
+  profiles: dev
+  application:
+    name: springcloud-config-eureka
+    
+eureka:
+  instance:
+    hostname: eureka2       # 主机名，不配置的时候将根据操作系统的主机名来获取
+  client:
+    register-with-eureka: false   # 是否将自己注册到注册中心，默认为 true
+    fetch-registry: false         # 是否从注册中心获取服务注册信息，默认为 true
+    service-url:                  # 注册中心对外暴露的注册地址
+      defaultZone: http://eureka1:9735/eureka/,http://eureka3:9745/eureka/

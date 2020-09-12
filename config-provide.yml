@@ -1,0 +1,41 @@
+spring:
+  profiles:
+    active: dev
+
+---
+server:
+  port: 9710
+  
+#spring配置
+spring:
+  profiles: dev
+  application:
+    name: springcloud-provider
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///db01?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    username: root
+    password: ly971025
+    
+#mybatis-plus
+mybatis-plus:
+  type-aliases-package: com.ly.spring.api
+  mapper-locations: classpath:/mybatis/mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+#数据库执行的日志
+logging:
+  level: 
+    com.ly.mapper: debug
+#eureka配置 提供者
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9725/eureka/,http://localhost:9735/eureka/,http://localhost:9745/eureka/ #将服务注册到这个地址
+  instance:
+    instance-id: spring-cloud-provider-9710 #修改eureka上面的描述信息
+#info配置
+info:
+  app.name: ly-springcloud #配置自己的名字 可以然被人看到是谁写
+  company.name: ly-springcloud #配公司的名字
